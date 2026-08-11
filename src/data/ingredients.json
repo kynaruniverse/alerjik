@@ -1,0 +1,122 @@
+{
+  "schema_version": "1.0",
+  "jurisdiction": "GB",
+  "_notes": "Initial validation dataset. This is a deliberately small test set, not a complete ingredient database. default_status is the starting status before conditional rules are evaluated.",
+
+  "ingredients": {
+    "wheat-flour": {
+      "canonical_name": "Wheat flour",
+      "aliases": [
+        "flour",
+        "plain flour",
+        "strong flour",
+        "self-raising flour"
+      ],
+      "allergens": ["gluten"],
+      "default_status": "confirmed",
+      "rules": []
+    },
+
+    "butter": {
+      "canonical_name": "Butter",
+      "aliases": [
+        "unsalted butter",
+        "salted butter",
+        "butterfat"
+      ],
+      "allergens": ["milk"],
+      "default_status": "confirmed",
+      "rules": []
+    },
+
+    "egg": {
+      "canonical_name": "Egg",
+      "aliases": [
+        "eggs",
+        "whole egg",
+        "fresh egg",
+        "fresh eggs",
+        "large eggs"
+      ],
+      "allergens": ["eggs"],
+      "default_status": "confirmed",
+      "rules": []
+    },
+
+    "soya-lecithin": {
+      "canonical_name": "Soya lecithin",
+      "aliases": [
+        "soy lecithin",
+        "lecithin (soya)",
+        "e322"
+      ],
+      "allergens": ["soya"],
+      "default_status": "confirmed",
+      "rules": []
+    },
+
+    "refined-soybean-oil": {
+      "canonical_name": "Fully refined soybean oil",
+      "aliases": [
+        "fully refined soybean oil",
+        "fully refined soya oil"
+      ],
+      "allergens": ["soya"],
+      "default_status": "needs_checking",
+      "rules": [
+        "soya_fully_refined_oil_exemption"
+      ]
+    },
+
+    "soybean-oil": {
+      "canonical_name": "Soybean oil",
+      "aliases": [
+        "soya oil",
+        "soy oil",
+        "soybean oil"
+      ],
+      "allergens": ["soya"],
+      "default_status": "needs_checking",
+      "rules": [
+        "soya_fully_refined_oil_exemption"
+      ]
+    },
+
+    "dark-chocolate": {
+      "canonical_name": "Dark chocolate",
+      "aliases": [
+        "plain chocolate",
+        "dark choc",
+        "chocolate, dark"
+      ],
+      "allergens": [],
+      "default_status": "needs_checking",
+      "rules": [
+        "compound_ingredient_requires_subingredients"
+      ]
+    },
+
+    "baking-powder": {
+      "canonical_name": "Baking powder",
+      "aliases": [
+        "baking soda blend"
+      ],
+      "allergens": [],
+      "default_status": "needs_checking",
+      "rules": [
+        "may_contain_cereal_carrier"
+      ]
+    },
+
+    "vanilla-extract": {
+      "canonical_name": "Vanilla extract",
+      "aliases": [
+        "vanilla essence",
+        "pure vanilla extract"
+      ],
+      "allergens": [],
+      "default_status": "not_identified",
+      "rules": []
+    }
+  }
+}

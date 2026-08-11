@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "jurisdiction": "GB",
+
+  "allergens": {
+    "celery": { "label": "Celery" },
+    "gluten": { "label": "Cereals containing gluten" },
+    "crustaceans": { "label": "Crustaceans" },
+    "eggs": { "label": "Eggs" },
+    "fish": { "label": "Fish" },
+    "lupin": { "label": "Lupin" },
+    "milk": { "label": "Milk" },
+    "molluscs": { "label": "Molluscs" },
+    "mustard": { "label": "Mustard" },
+    "peanuts": { "label": "Peanuts" },
+    "sesame": { "label": "Sesame" },
+    "soya": { "label": "Soya" },
+    "sulphites": { "label": "Sulphur dioxide and sulphites" },
+    "nuts": { "label": "Nuts" }
+  },
+
+  "status_values": {
+    "confirmed": "The supplied information establishes an allergen is present.",
+    "not_identified": "No regulated allergen has been established from the information provided. This does NOT mean allergen-free.",
+    "needs_checking": "The ingredient is ambiguous, compound, conditional, or lacks sufficient specification to reach a conclusion."
+  },
+
+  "rules": {
+    "soya_fully_refined_oil_exemption": {
+      "type": "conditional_exemption",
+      "allergen": "soya",
+      "condition": "ingredient_is_confirmed_fully_refined",
+      "result_if_condition_met": "not_identified",
+      "result_if_condition_unmet": "needs_checking",
+      "source": "Annex II EU FIC (retained UK law)",
+      "description": "Only applies when the supplied information explicitly confirms that the soybean oil or fat is fully refined."
+    },
+
+    "compound_ingredient_requires_subingredients": {
+      "type": "verification",
+      "condition": "compound_ingredient_without_subingredients",
+      "result": "needs_checking",
+      "source": "Structural parsing rule",
+      "description": "A manufactured compound ingredient may have its own ingredient list. The top-level name alone cannot always establish allergen status."
+    },
+
+    "may_contain_cereal_carrier": {
+      "type": "verification",
+      "condition": "carrier_or_anti_caking_agent_unspecified",
+      "result": "needs_checking",
+      "source": "FSA guidance",
+      "description": "Some raising agents and powders may contain cereal-derived carriers. Supplier information may be required."
+    }
+  }
+}
